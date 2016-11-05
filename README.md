@@ -133,15 +133,13 @@ For example, the first 10 lines (including the header) of `batch_payment.csv` or
 ##Writing clean, scalable and well-tested code
 [Back to Table of Contents] (README.md#table-of-contents)
 
-As a data engineer, it’s important you write clean, well-documented code that scales for large amounts of data. For this reason, it’s important to ensure your solution works well for a huge number of payments coming in a short period of time.
+It’s important you write clean, well-documented code that scales for large amounts of data. For this reason, it’s important to ensure your solution works well for a huge number of payments coming in a short period of time.
 
 It's also important to use software engineering best practices like **unit tests**, especially since public data is not clean and predictable. 
 
-You may write your solution in any mainstream programming language, such as C, C++, Java, JavaScript, Python, Ruby, or Scala. Once completed, submit a link to a Github (or Bitbucket) repo with your source code. 
-
 In addition to the source code, the top-most directory of your repo must include the `paymo_input` and `paymo_output` directories, and a shell script named `run.sh` that compiles and runs the program(s) that implement these features. 
 
-If your solution requires additional libraries, environments, or dependencies, you must specify these in your README documentation (otherwise we won't be able to test it). See the figure below for the required structure of the top-most directory in your repo, or simply <i>clone</i> this repo, but **please don't fork** it.
+If your solution requires additional libraries, environments, or dependencies, you must specify these in your README documentation (otherwise we won't be able to test it).
 
 ##Repo directory structure
 [Back to Table of Contents] (README.md#table-of-contents)
@@ -214,4 +212,28 @@ on success.
 One test has been provided as a way to check your formatting and simulate how we will be running tests when you submit your solution. We urge you to write your own additional tests here as well as for your own programming language. `run_tests.sh` should alert you if the directory structure is incorrect.
 
 Your submission must pass at least the provided test in order to pass the coding challenge.
+
+#FAQ
+
+
+    If User A sends a payment to User B, is that different than if User B sends a payment to User A?
+    No, for simplicity all relationships should be undirected. Users are "friends" regardless of who initiated the payment.
+
+    Can I use pre-built packages, modules, or libraries?
+    This coding challenge can be completed without any "exotic" packages. While you may use publicly available packages, modules, or libraries, you must document any dependencies in your accompanying README file. When we review your submission, we will download these libraries and attempt to run your program. If you do use a package, you should always ensure that the module you're using works efficiently for the specific use-case in the challenge, since many libraries are not designed for large amounts of data.
+
+    Do I need to account for an updating stream_payment.csv file?
+    No, your solution doesn't have to re-process stream_payment.csv multiple times. Instead, you should imagine that each line corresponds to a new sequential transaction.
+
+    What should the format of the output be?
+    In order to be tested correctly, you must use the format described above. You can ensure that you have the correct format by using the testing suite we've included. 
+    Should I check if the files in the input directory are text files or non-text files(binary)?
+    No, for simplicity you may assume that all of the files in the input directory are text files, with the format as described above.
+
+    Can I use an IDE like Eclipse or IntelliJ to write my program?
+    Yes, you can use what ever tools you want - as long as your run.sh script correctly runs the relevant target files and creates the output1.txt, output2.txt, output3.txt files in the paymo_output directory.
+
+    What should be in the paymo_input directory?
+    You can put any text file you want in the directory since our testing suite will replace it. Indeed, using your own input files would be quite useful for testing.
+
 
