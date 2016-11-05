@@ -216,24 +216,39 @@ Your submission must pass at least the provided test in order to pass the coding
 #FAQ
 
 
-    If User A sends a payment to User B, is that different than if User B sends a payment to User A?
-    No, for simplicity all relationships should be undirected. Users are "friends" regardless of who initiated the payment.
+If User A sends a payment to User B, is that different than if User B sends a payment to User A?
 
-    Can I use pre-built packages, modules, or libraries?
-    This coding challenge can be completed without any "exotic" packages. While you may use publicly available packages, modules, or libraries, you must document any dependencies in your accompanying README file. When we review your submission, we will download these libraries and attempt to run your program. If you do use a package, you should always ensure that the module you're using works efficiently for the specific use-case in the challenge, since many libraries are not designed for large amounts of data.
+No, for simplicity all relationships should be undirected. Users are "friends" regardless of who 
+initiated the payment.
 
-    Do I need to account for an updating stream_payment.csv file?
-    No, your solution doesn't have to re-process stream_payment.csv multiple times. Instead, you should imagine that each line corresponds to a new sequential transaction.
+Can I use pre-built packages, modules, or libraries?
 
-    What should the format of the output be?
-    In order to be tested correctly, you must use the format described above. You can ensure that you have the correct format by using the testing suite we've included. 
-    Should I check if the files in the input directory are text files or non-text files(binary)?
-    No, for simplicity you may assume that all of the files in the input directory are text files, with the format as described above.
+This coding challenge can be completed without any "exotic" packages. While you may use publicly 
+available packages, modules, or libraries, you must document any dependencies in your accompanying 
+README file. 
+When we review your submission, we will download these libraries and attempt to run your program. 
+If you do use a package, you should always ensure that the module you're using works efficiently for the 
+specific use-case in the challenge, since many libraries are not designed for large amounts of data.
 
-    Can I use an IDE like Eclipse or IntelliJ to write my program?
-    Yes, you can use what ever tools you want - as long as your run.sh script correctly runs the relevant target files and creates the output1.txt, output2.txt, output3.txt files in the paymo_output directory.
+Do I need to account for an updating stream_payment.csv file?
 
-    What should be in the paymo_input directory?
-    You can put any text file you want in the directory since our testing suite will replace it. Indeed, using your own input files would be quite useful for testing.
+No, your solution doesn't have to re-process stream_payment.csv multiple times. Instead, you should 
+imagine that each line corresponds to a new sequential transaction.
+
+What should the format of the output be?
+
+In order to be tested correctly, you must use the format described above. You can ensure 
+that you have the correct format by using the testing suite we've included. 
+Should I check if the files in the input directory are text files or non-text files(binary)?
+No, for simplicity you may assume that all of the files in the input directory are text files, 
+with the format as described above.
+
+You can use what ever tools you want - as long as your run.sh script correctly runs the relevant target 
+files and creates the output1.txt, output2.txt, output3.txt files in the paymo_output directory.
+
+What should be in the paymo_input directory?
+
+You can put any text file you want in the directory since our testing suite will replace it. 
+Indeed, using your own input files would be quite useful for testing.
 
 
