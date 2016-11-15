@@ -34,6 +34,8 @@ class Users(object):
         queue = [user1]
         while(steps>0 and len(queue)>0):
             current_user = queue.pop(0)
+            if current_user.user_id in already_seen:
+                continue
             already_seen.add(current_user.user_id)
             if id2 in current_user.transaction_ids:
                 return True
@@ -41,8 +43,6 @@ class Users(object):
             if steps == 0:
                 return False
             for user_id in current_user.transaction_ids:
-                if user_id in already_seen:
-                    continue
                 user = self.create_or_get_user(user_id)
                 queue.append(user)
         return False
