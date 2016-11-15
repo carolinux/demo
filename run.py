@@ -5,7 +5,7 @@ from graph.users import Users
 
 
 def main(input_batch, input_stream, outfiles):
-    users = Users()
+    users = Users() # initialize the object holding all the users
     i = 0
     with open(input_batch, 'r') as f:
         f.readline() # to skip header
@@ -19,20 +19,30 @@ def main(input_batch, input_stream, outfiles):
             if i%100000 ==0:
                 print "Now at {}th transaction".format(i)
 
+    i = 0
+    # this loop here handles each stream transaction
+    # and figures out the degree of trust
     with open(input_stream, 'r') as f, open(outfiles[0], 'w') as of1, open(outfiles[1],'w') as of2, open(outfiles[2], 'w') as of3:
         f.readline() # to skip header
         for line in f:
             vals = line.strip().split(",")
             id1 = int(vals[1])
             id2 = int(vals[2])
+            # if you only trust people you know
             trust_msg1 = users.get_trust_level_of_transaction(id1, id2, degree_of_trust=1)
+            # if you also trust friends of friends
             trust_msg2 = users.get_trust_level_of_transaction(id1, id2, degree_of_trust=2)
+            # if you trust up to friends of friends of friends of friends
             trust_msg3 = users.get_trust_level_of_transaction(id1, id2, degree_of_trust=4)
             of1.write(trust_msg1+"\n")
             of2.write(trust_msg2+"\n")
             of3.write(trust_msg3+"\n")
-            #print trust_msg1, trust_msg2, trust_msg3
+            print trust_msg1, trust_msg2, trust_msg3
+            # don't forget to also add the transaction, after you figure out the trust level
             users.add_transaction(id1, id2)
+            i+=1
+            if i%10000 ==0:
+                print "Now at {}th streamingtransaction".format(i)
     
 
 if __name__ == '__main__':
